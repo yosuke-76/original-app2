@@ -1,0 +1,44 @@
+.body-devise {
+  background-image: url("https://pbs.twimg.com/media/E7Nr9f8VcAQ49Au?format=jpg&name=large");
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.field {
+  width: 350px;
+  border-radius: 4px;
+  border: 1px #111111 solid;
+  background-color: white;
+  opacity: 0.9;
+}
+.field-inner {
+  padding: 20px 25px;
+}
+h2 {
+  font-weight: 400;
+  font-size: 28px;
+  margin-bottom: 10px;
+  padding-bottom: 4px;
+  color: #111111;
+  text-align: center;
+}
+.field-text {
+  margin-bottom: 18px;
+}
+.text-box {
+  border: none;
+  width: 100%;
+  border-bottom: solid 1px darkgray ;
+}
+.sign-btn {
+  color: white;
+  font-size: 28px;
+  background: #f16272;
+  text-align: center;
+  border: none;
+  height: 50px;
+  width: 100%;
+}
