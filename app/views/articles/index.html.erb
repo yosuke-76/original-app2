@@ -1,12 +1,9 @@
-<%= render "shared/header" %>
-
 <div class="contents row">
-  <% @articles.each do |articles| %>
-    <div class="content_post" style="background-image: url(<%= articles.image %>);">
-      <p><%= articles.text %></p>
-      <span class="name">
-        <%= articles.name %>
-      </span>
-    </div>
+  <% @articles.each do |article| %>
+    <%= image_tag article.image, class: "article-img" %>
+    <p><%= article.text %></p>
+    <span class="name">
+      <%= article.store_name %>
+    </span>
   <% end %>
 </div>
