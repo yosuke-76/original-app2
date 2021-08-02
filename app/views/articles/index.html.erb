@@ -4,6 +4,9 @@
       <span><%= image_tag article.image, class: "article-img" %></span>
       <ul class="more-list">
         <li>
+          <%= link_to '編集', edit_article_path(article.id), method: :get %>
+        </li>
+        <li>
           <%= link_to "削除", article_path(article.id), method: :delete %>
         </li>
       </ul>
