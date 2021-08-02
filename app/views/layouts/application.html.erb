@@ -4,12 +4,29 @@
     <title>OriginalApp2</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header class="header">
+      <div class='search-bar-contents'>
+        <%= link_to 'original-app2', root_path, class: "original-icon" %>
+      </div >
+      <div class="nav">
+        <ul class='lists-right'>
+          <% if user_signed_in? %>
+            <li><%= link_to current_user.nickname, "/users/#{current_user.id}", class: "user-nickname" %></li>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+          <% else %>
+            <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+            <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+          <% end %>
+        </ul>
+        <%= link_to "投稿する", new_article_path, class: "post" %>
+      </div> 
+    </header>
     <%= yield %>
   </body>
 </html>
