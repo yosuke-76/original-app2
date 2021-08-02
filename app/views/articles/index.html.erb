@@ -1,1 +1,12 @@
 <%= render "shared/header" %>
+
+<div class="contents row">
+  <% @articles.each do |articles| %>
+    <div class="content_post" style="background-image: url(<%= articles.image %>);">
+      <p><%= articles.text %></p>
+      <span class="name">
+        <%= articles.name %>
+      </span>
+    </div>
+  <% end %>
+</div>
