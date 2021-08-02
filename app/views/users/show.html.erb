@@ -1,0 +1,8 @@
+<div class="contents row">
+  <p><%= @nickname %>さんの投稿一覧</p>
+  <% @articles.each do |article| %>
+    <span><%= image_tag article.image, class: "article-img" %></span>
+    <p><%= article.text %></p>
+    <span class="name"><%= article.store_name %></span>
+  <% end %>
+</div>
