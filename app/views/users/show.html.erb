@@ -1,4 +1,5 @@
 <div class="contents row">
+  <%= render "shared/follow", user: @user %>
   <p><%= @nickname %>さんの投稿一覧</p>
   <% @articles.each do |article| %>
     <span><%= image_tag article.image, class: "article-img" %></span>
