@@ -14,6 +14,12 @@
       <%= @article.store_name %>
     </span>
   </div>
+  <h3>いいね件数: <%= @article.likes.count %></h3>
+  <% if current_user.already_liked?(@article) %>
+    <%= button_to 'いいねを取り消す', article_like_path(@article), method: :delete %>
+  <% else %>
+    <%= button_to 'いいね', article_likes_path(@article) %>
+  <% end %>
   <div class="container">
     <% if user_signed_in? %>
       <%= form_with(model: [@article, @comment], local: true) do |f| %>
