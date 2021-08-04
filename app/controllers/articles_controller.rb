@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   def index
     @articles = Article.all
+    @like = Like.new
   end
   
   def new
@@ -33,6 +34,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @comment = Comment.new
     @comments = @article.comments.includes(:user)
+    @like = Like.new
   end
 
   def destroy

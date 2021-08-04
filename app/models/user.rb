@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :likes
+  has_many :like_articles, through: :likes , source: :article
   has_many :comments
   has_many :articles
   has_many :relationships
@@ -24,6 +26,10 @@ class User < ApplicationRecord
 
   def following?(other_user)
     self.followings.include?(other_user)
+  end
+
+  def already_liked?(article)
+    self.likes.exists?(article_id: article.id)
   end
 
   with_options presence: true do

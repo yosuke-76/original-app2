@@ -10,4 +10,10 @@
     <p><%= article.text %></p>
     <span class="name"><%= article.store_name %></span>
   <% end %>
+  <h3>いいねしている投稿</h3>
+  <% @user.like_articles.each do |article| %>
+  <%= image_tag article.image, class: "article-img" %>
+    <%= article.store_name %>
+    <%= article.text %>
+<% end %>
 </div>
