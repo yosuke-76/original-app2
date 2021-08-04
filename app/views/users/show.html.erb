@@ -1,6 +1,10 @@
 <div class="contents row">
+  <p><%= @user.nickname %>さんの投稿一覧</p>
   <%= render "shared/follow", user: @user %>
-  <p><%= @nickname %>さんの投稿一覧</p>
+  <% if @user.id == current_user.id %>
+    <%= link_to "フォロー: #{@user.followings.count}", followings_user_path(@user.id) %>
+    <%= link_to "フォロワー: #{@user.followers.count}", followers_user_path(@user.id) %>
+  <% end %>
   <% @articles.each do |article| %>
     <span><%= image_tag article.image, class: "article-img" %></span>
     <p><%= article.text %></p>

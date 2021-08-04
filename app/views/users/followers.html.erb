@@ -1,0 +1,4 @@
+<h1>フォローされてます</h1>
+<%= @users.each do |user| %>
+  <%= link_to user.nickname, user_path(user.id) %>
+<% end %>
