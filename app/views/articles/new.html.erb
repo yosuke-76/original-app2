@@ -2,11 +2,14 @@
   <div class="container">
     <h3>投稿フォーム</h3>
     <%= form_with(model: @article, local: true) do |f| %>
-      <%= f.file_field :image %>
+      <%= f.file_field :images, name: 'article[images][]', id: 'article_image' %>
       <%= f.text_area :store_name, placeholder: "store name" %>
       <%= f.text_area :text, placeholder: "text", rows: "10" %>
       <%= f.submit "SEND" %>
       <div id="image-list"></div>
+    <% end %>
+    <% @article.images.each do |image| %>
+      <%= image_tag image, class: 'images' %>
     <% end %>
   </div>
 </div>
