@@ -10,4 +10,7 @@ class Article < ApplicationRecord
     validates :store_name
     validates :text
   end
+
+  geocoded_by :address
+  before_validation :geocode
 end

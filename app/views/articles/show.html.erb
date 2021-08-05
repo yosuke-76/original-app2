@@ -24,6 +24,7 @@
   <% else %>
     <%= button_to 'いいね', article_likes_path(@article) %>
   <% end %>
+  <div id='map'></div>
   <div class="container">
     <% if user_signed_in? %>
       <%= form_with(model: [@article, @comment], local: true) do |f| %>
@@ -35,12 +36,45 @@
     <% end %>
   </div>
   <div class="comments">
-      <h4>＜コメント一覧＞</h4>
-      <% @comments.each do |comment| %>
-        <p>
-          <strong><%= link_to comment.user.nickname, user_path(comment.user_id) %>：</strong>
-          <%= comment.text %>
-        </p>
-      <% end %>
-    </div>
+    <h4>＜コメント一覧＞</h4>
+    <% @comments.each do |comment| %>
+      <p>
+        <strong><%= link_to comment.user.nickname, user_path(comment.user_id) %>：</strong>
+        <%= comment.text %>
+      </p>
+    <% end %>
+  </div>
+
+  <style type="text/css">
+    #map {
+      height: 200px;
+      width: 70%;
+    }
+  </style>
+  <script type="text/javascript">
+    function initMap() {
+      var test = {lat: <%= @article.latitude %>, lng: <%= @article.longitude %>};
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 15, 
+        center: test
+      });
+      var transitLayer = new google.maps.TransitLayer();
+      transitLayer.setMap(map);
+      var contentString = '住所：<%= @article.address %>';
+      var infowindow = new google.maps.InfoWindow({
+        content: contentString
+      });
+      var marker = new google.maps.Marker({
+        position:test,
+        map: map,
+        title: contentString
+      });
+      marker.addListener('click', function() {
+        infowindow.open(map, marker);
+      });
+    }
+  </script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['MAP_API_KEY'] %>&callback=initMap">
+  </script>
 </div>
