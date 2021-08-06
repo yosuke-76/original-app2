@@ -25,6 +25,7 @@
           <% end %>
         </ul>
         <%= link_to "投稿する", new_article_path, class: "post" %>
+        <%= link_to "通知", notifications_path, method: :get, class: "notification" %>
       </div> 
     </header>
     <%= yield %>

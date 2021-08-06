@@ -6,13 +6,13 @@
     <%= link_to "フォロワー: #{@user.followers.count}", followers_user_path(@user.id) %>
   <% end %>
   <% @articles.each do |article| %>
-    <span><%= image_tag article.image, class: "article-img" %></span>
+    <span><%= image_tag article.images[0], class: "article-img" %></span>
     <p><%= article.text %></p>
     <span class="name"><%= article.store_name %></span>
   <% end %>
   <h3>いいねしている投稿</h3>
   <% @user.like_articles.each do |article| %>
-  <%= image_tag article.image, class: "article-img" %>
+  <%= image_tag article.images[0], class: "article-img" %>
     <%= article.store_name %>
     <%= article.text %>
 <% end %>
