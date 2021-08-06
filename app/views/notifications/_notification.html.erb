@@ -1,0 +1,23 @@
+<% visitor = notification.visitor %>
+<% visited = notification.visited %>
+
+<%= link_to user_path(visitor) do %>
+  <%= visitor.nickname %>
+  <%= 'さんが' %>
+  <% case notification.action %>
+  <% when 'follow' %>
+    <%= "あなたをフォローしました" %>
+  <% when 'like' %>
+    <%= link_to 'あなたの投稿', notification.article %>
+    <%= "にいいねしました" %>
+  <% when 'comment' %>
+    <% if notification.article.user_id == visited.id %>
+      <%= link_to "あなたの投稿", notification.article %>
+      <%= "にコメントしました" %>
+    <% else %>
+      <%= notification.article.user.name %>
+      <%= 'さんの投稿にコメントしました' %>
+      <%= Comment.find_by(id: notification.comment_id)&.comment %>
+    <% end %>
+  <% end %>
+<% end %>
