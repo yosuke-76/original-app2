@@ -1,0 +1,24 @@
+.wrapper_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: auto;
+  background-color: turquoise;
+}
+.original-icon {
+  font-size: 100%;
+  font-weight: bold;
+}
+.header_end {
+  width: 45%; 
+}
+.nav-lists {
+  width: 100%;
+  display: flex;
+}
+.button {
+  display: block;
+  padding: 3%;
+  float: left;
+}

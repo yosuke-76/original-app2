@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_article, only: [:edit, :update, :show]
   def index
     @articles = Article.all
     @like = Like.new
@@ -18,12 +20,10 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = Article.find(params[:id])
   end
 
   def update
-    article = Article.find(params[:id])
-    if article.update(article_params)
+    if @article.update(article_params)
       redirect_to root_path
     else
       render :edit
@@ -31,7 +31,6 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
     @comment = Comment.new
     @comments = @article.comments.includes(:user)
     @like = Like.new
@@ -46,5 +45,9 @@ class ArticlesController < ApplicationController
   private
   def article_params
     params.require(:article).permit(:address, :store_name, :text, images: []).merge(user_id: current_user.id)
+  end
+
+  def set_article
+    @article = Article.find(params[:id])
   end
 end
