@@ -1,6 +1,13 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
   def index
+    @rooms = current_user.rooms
+    @currentEntries = current_user.entries
+    myRoomIds = []
+    @currentEntries.each do |entry|
+      myRoomIds << entry.room.id
+    end
+    @anotherEntries = Entry.where(room_id: myRoomIds).where.not(user_id: current_user.id)
   end
 
   def create
