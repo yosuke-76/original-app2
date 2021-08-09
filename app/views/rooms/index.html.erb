@@ -1,0 +1,7 @@
+<% @anotherEntries.each do |e| %>
+  <%= link_to room_path(e.room.id) do %>
+    <%= e.user.nickname %>とのDM<br>
+    <%= Message.find_by(id: e.room.message_ids.last).content %>
+    <%= Message.find_by(id: e.room.message_ids.last).created_at.strftime("%Y年%m月%d日 %H時%M分") %>
+  <% end %>
+<% end %>

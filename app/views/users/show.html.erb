@@ -1,5 +1,17 @@
 <div class="contents row">
   <p><%= @user.nickname %>さんの投稿一覧</p>
+  <% unless @user.id == current_user.id %>
+    <% if @isRoom == true %>
+      <%= link_to "ダイレクトメッセージ", room_path %>
+    <% else %>
+      <%= form_with model: @room, local: true do |f| %>
+        <%= fields_for @Entry do |r| %>
+          <%= r.hidden_field :user_id, value: @user.id %>
+        <% end %>
+        <%= f.submit "チャットを始める" %>
+      <% end %>
+    <% end %>
+  <% end %>
   <%= render "shared/follow", user: @user %>
   <% if @user.id == current_user.id %>
     <%= link_to "フォロー: #{@user.followings.count}", followings_user_path(@user.id) %>
@@ -16,4 +28,3 @@
     <%= article.store_name %>
     <%= article.text %>
 <% end %>
-</div>
