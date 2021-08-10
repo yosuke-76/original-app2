@@ -8,7 +8,7 @@
         <ul class='nav-lists'>
           <% if user_signed_in? %>
             <li class="button">
-              <%= link_to current_user.nickname, "/users/#{current_user.id}", class: "user-nickname" %>
+              <%= link_to current_user.nickname, user_path(current_user.id), class: "user-nickname" %>
             </li>
             <li class="button">
               <%= link_to "投稿する", new_article_path, class: "post" %>

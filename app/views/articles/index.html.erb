@@ -4,7 +4,7 @@
     <div class="more", id="more">
       <div class="articles">
         <% article.images.each do |image| %>
-          <%= image_tag image.variant(resize: '80%x50%'), class: "images" %>
+          <%= image_tag image, class: "images" %>
         <% end %>
       </div>
       <span class="name">
