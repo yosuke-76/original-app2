@@ -29,6 +29,7 @@
 }
 h1 {
   font-size: xx-large;
+  text-align: center;
   margin-top: 3%;
 }
 .form_class {
@@ -74,6 +75,7 @@ h1 {
 .more-list {
   display: flex;
   justify-content: flex-end;
+  padding-left: auto;
 }
 .list {
   width: 5%;
@@ -102,4 +104,7 @@ h4 {
 }
 h5 {
   text-align: center;
+}
+.lists {
+  padding: 1%;
 }
