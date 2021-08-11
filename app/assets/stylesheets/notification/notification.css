@@ -1,0 +1,12 @@
+.notification-room {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 40px;
+}
+.notification-box {
+  text-align: center;
+  border: solid;
+  padding: 40px;
+  margin: 10px;
+}
