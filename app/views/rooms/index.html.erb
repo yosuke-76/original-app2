@@ -1,7 +1,19 @@
+<%= render "shared/header" %>
+<div class="talk-name">トークルーム</div>
 <% @anotherEntries.each do |e| %>
-  <%= link_to room_path(e.room.id) do %>
-    <%= e.user.nickname %>とのDM<br>
-    <%= Message.find_by(id: e.room.message_ids.last).content %>
-    <%= Message.find_by(id: e.room.message_ids.last).created_at.strftime("%Y年%m月%d日 %H時%M分") %>
-  <% end %>
+  <div class="room-list">
+    <%= link_to room_path(e.room.id) do %>
+      <div class="room"><%= e.user.nickname %>さんとのルーム</div>
+      <div class="room-text">
+        <div class="text-box">
+          <b>最終送信者</b>
+          <%= Message.find_by(id: e.room.message_ids.last).user.nickname %>
+          <b>メッセージ内容</b>
+          <%= Message.find_by(id: e.room.message_ids.last).content %>
+          <b>送信日時</b>
+          <%= Message.find_by(id: e.room.message_ids.last).created_at.strftime("%Y年%m月%d日 %H時%M分") %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 <% end %>

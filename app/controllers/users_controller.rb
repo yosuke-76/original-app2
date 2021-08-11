@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: :show
+  before_action :set_follow, only: [:followings, :followers]
   def show
     @user = User.find(params[:id])
     @articles = current_user.articles
@@ -25,12 +26,15 @@ class UsersController < ApplicationController
   end
 
   def followings
-    @user = User.find(params[:id])
     @users = @user.followings.all
   end
 
   def followers
-    @user = User.find(params[:id])
     @users = @user.followers.all
+  end
+  
+  private
+  def set_follow
+    @user = User.find(params[:id])
   end
 end

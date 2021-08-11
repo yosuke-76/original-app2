@@ -1,26 +1,29 @@
-<div class="contents row">
+<%= render "shared/header" %>
+<div class="contents_low">
   <% @articles.each do |article| %>
-    <div class="more">
+    <div class="more", id="more">
       <div class="articles">
-        <% article.images.each do |image| %>
+        <% article.images.first(1).each do |image| %>
           <%= image_tag image, class: "images" %>
         <% end %>
       </div>
-      <p><%= article.text %></p>
       <span class="name">
         <%= article.store_name %>
+        <%= article.address %>
+        <span>投稿者</span><%= link_to article.user.nickname, user_path(article.user.id) %>
       </span>
       <ul class="more-list">
         <li>
-          <%= link_to article.user.nickname, user_path(article.user.id) %>
-        <li>
           <%= link_to '詳細', article_path(article.id)%>
-        <li>
-          <%= link_to '編集', edit_article_path(article.id), method: :get %>
         </li>
-        <li>
-          <%= link_to "削除", article_path(article.id), method: :delete %>
-        </li>
+        <% if user_signed_in? && current_user.id == article.user_id %>
+          <li>
+            <%= link_to '編集', edit_article_path(article.id), method: :get %>
+          </li>
+          <li>
+            <%= link_to "削除", article_path(article.id), method: :delete %>
+          </li>
+        <% end %>
       </ul>
     </div>
   <% end %>

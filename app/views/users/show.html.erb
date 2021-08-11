@@ -1,8 +1,9 @@
-<div class="contents row">
-  <p><%= @user.nickname %>さんの投稿一覧</p>
+<%= render "shared/header" %>
+<div class="contents_low">
+  <div class="user-pro"><%= @user.nickname %>さんのプロフィール</div>
   <% unless @user.id == current_user.id %>
     <% if @isRoom == true %>
-      <%= link_to "ダイレクトメッセージ", room_path %>
+      <%= link_to "メッセージを送る", room_path %>
     <% else %>
       <%= form_with model: @room, local: true do |f| %>
         <%= fields_for @Entry do |r| %>
@@ -14,17 +15,39 @@
   <% end %>
   <%= render "shared/follow", user: @user %>
   <% if @user.id == current_user.id %>
-    <%= link_to "フォロー: #{@user.followings.count}", followings_user_path(@user.id) %>
-    <%= link_to "フォロワー: #{@user.followers.count}", followers_user_path(@user.id) %>
+    <span>
+      <%= link_to "フォロー: #{@user.followings.count}", followings_user_path(@user.id) %>
+      <%= link_to "フォロワー: #{@user.followers.count}", followers_user_path(@user.id) %>
+    </span>
   <% end %>
-  <% @articles.each do |article| %>
-    <span><%= image_tag article.images[0], class: "article-img" %></span>
-    <p><%= article.text %></p>
-    <span class="name"><%= article.store_name %></span>
-  <% end %>
-  <h3>いいねしている投稿</h3>
-  <% @user.like_articles.each do |article| %>
-  <%= image_tag article.images[0], class: "article-img" %>
-    <%= article.store_name %>
-    <%= article.text %>
-<% end %>
+  <h1>投稿一覧</h1>
+  <div class="contents_low" >
+    <% @articles.each do |article| %>
+      <div class="article-list">
+        <%= image_tag article.images[0], class: "images" %>
+        <div class="name">
+          <p>　店舗名　<%= article.store_name %></p>
+          <p>　住所　<%= article.address %></p>
+          <p>　投稿内容　<%= article.text %></p>
+          <div class="more-list">
+            <% if user_signed_in? && current_user.id == article.user_id %>
+              <%= link_to '編集', edit_article_path(article.id), method: :get, class: "lists" %>
+              <%= link_to "削除", article_path(article.id), method: :delete, class: "lists" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <h2>いいねしている投稿</h2>
+    <div class="article-list">
+      <% @user.like_articles.each do |article| %>
+        <%= image_tag article.images[0], class: "images" %>
+        <div class="name">
+          <p>　投稿者　<%= article.user.nickname %></p>
+          <p>　店舗名　<%= article.store_name %></p>
+          <p>　住所　<%= article.address %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

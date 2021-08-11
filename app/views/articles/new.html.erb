@@ -1,16 +1,20 @@
-<div class="contents row">
+<%= render "shared/header" %>
+<div class="contents_row">
   <div class="container">
-    <h3>投稿フォーム</h3>
-    <%= form_with(model: @article, local: true) do |f| %>
-      <%= f.file_field :images, name: 'article[images][]', id: 'article_image' %>
-      <%= f.text_area :store_name, placeholder: "store name" %>
-      <%= f.text_field :address, placeholder: "address" %>
-      <%= f.text_area :text, placeholder: "text", rows: "10" %>
-      <%= f.submit "SEND" %>
-      <div id="image-list"></div>
-    <% end %>
+    <h1>投稿フォーム</h1>
     <% @article.images.each do |image| %>
       <%= image_tag image, class: 'images' %>
+    <% end %>
+    <%= form_with model: @article, class: :form_class, local: true do |f| %>
+      <%= f.file_field :images, name: 'article[images][]', id: 'article_image' %>
+      <%= f.label :store_name, "店舗名" %>
+      <%= f.text_field :store_name, placeholder: "store name", class: :store_name, size: "35" %>
+      <%= f.label :address, "住所" %>
+      <%= f.text_area :address, placeholder: "address", class: :address, size: "35" %>
+      <%= f.label :text, "投稿内容" %>
+      <%= f.text_area :text, placeholder: "text", size: "35x8" %>
+      <%= f.submit "送信", class: :submit %>
+      <div id="image-list"></div>
     <% end %>
   </div>
 </div>
