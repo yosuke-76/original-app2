@@ -1,7 +1,9 @@
+/* new */
 .talk-name {
   text-align: center;
   font-size: xx-large;
   padding: 5px;
+  margin-top: 60px;
 }
 .room-list {
   border: double;
@@ -16,4 +18,77 @@
 .room-text {
   display: flex;
   justify-content: space-between;
+}
+/* show */
+.user-pro {
+  font-size: xx-large;
+}
+.message-room {
+  width: 100%;
+  background-color: white;
+}
+.users-list {
+  display: flex;
+  justify-content: flex-start;
+  height: 25px;
+  padding: 0 10px;
+}
+.rooms-user-link {
+  margin: 0 5px;
+}
+.left-message{
+  text-align: left;
+  padding: 7px;
+  margin: 5px;
+}
+.content-box {
+  background-color:lightgreen;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 24px;
+}
+.right-message{
+  text-align: right;
+  padding: 7px;
+  margin: 5px;
+}
+.chat {
+  padding-top: 133px;
+  padding-bottom: 90px;
+  margin: 0 40px;
+  height: calc(100vh - 90px - 133px);
+  background-color: wheat;
+  overflow: scroll;
+}
+.form-message {
+  width: 100%;
+  height: 90px;
+  background-color: white;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+}
+.message-content {
+  height: 50px;
+  width: 80%;
+  padding-left: 10px;
+}
+.message-submit {
+  background-color: #38AEF0;
+  border: none;
+  color: white;
+  font-size: 16px;
+  height: 50px;
+  margin-left: 15px;
+  padding: 0 20px;
+}
+.header-message {
+  text-align: center;
+  width: 100%;
+  padding-top: 60px;
+  position: fixed;
+  background-color: white;
+}
+.top-message {
+  font-size: xx-large;
 }

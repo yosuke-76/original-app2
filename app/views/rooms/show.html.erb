@@ -1,36 +1,53 @@
-<div class="chat-room">
-  <h1>メッセージ</h1>
-  <% @entries.each do |r| %>
-    <div class="user-name">
-    <strong>
-      <a class="rooms-user-link" href="/users/<%= r.user.id %>">
-        <%= r.user.nickname %>さん
-      </a>
-    </strong>
-    </div>
-  <% end %>
-  <hr>
-  <div class="chats">
-    <div class="chat">
-      <% if @messages.present? %>
-        <% @messages.each do |m| %>
-          <div class="chat-box">
-            <div class="chat-text">
-              <%= m.content %>
-              <%= m.created_at.strftime("%Y-%m-%d %H:%M") %>
-            </div>
-          </div>
-        <% end %>
-      <% else %>
-        <P>メッセージはまだありません</p>
-      <% end %>
-    </div>
-    <div class="posts">
-      <%= form_with model: @message, local: true do |f| %>
-        <%= f.text_field :content, placeholder: "メッセージを入力してください" %>
-        <%= f.hidden_field :room_id, value:@room.id %>
-        <%= f.submit"送信する" %>
-      <% end %>
-    </div>
+<%= render "shared/header" %>
+<div class="header-message">
+<%= render "shared/header" %>
+  <span class="top-message">メッセージ</span>
+  <div class="users-list">
+    <b>トークに参加しているユーザー名</b>
+    <% @entries.each do |r| %>
+      <div class="user-name">
+      <strong>
+        <a class="rooms-user-link" href="/users/<%= r.user.id %>">
+          <%= r.user.nickname %>さん
+        </a>
+      </strong>
+      </div>
+    <% end %>
   </div>
+</div>
+</div>
+<hr>
+<div class="chat">
+  <% if @messages.present? %>
+    <% @messages.each do |m| %>
+      <div class="chat-box">
+        <div class="chat-text">
+          <% if m.user.id == current_user.id %>
+            <div class="right-message">
+              <%= m.created_at.strftime("%H:%M") %>
+              <span class="content-box">
+                <b><%= m.content %></b>
+              </span>
+            </div>
+          <% else %>
+            <div class="left-message">
+              <span class="content-box">
+                <b><%= m.content %></b>
+              </span>
+              <%= m.created_at.strftime("%H:%M") %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <P>メッセージはまだありません</p>
+  <% end %>
+</div>
+<div class="form-message">
+  <%= form_with model: @message, local: true do |f| %>
+    <%= f.text_field :content, class: "message-content", placeholder: "メッセージを入力してください" %>
+    <%= f.hidden_field :room_id, value:@room.id %>
+    <%= f.submit"送信する", class: "message-submit" %>
+  <% end %>
 </div>

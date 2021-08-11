@@ -1,6 +1,6 @@
 <%= render "shared/header" %>
-<div class="contents_row">
-  <p><%= @user.nickname %>さんのプロフィール</p>
+<div class="contents_low">
+  <div class="user-pro"><%= @user.nickname %>さんのプロフィール</div>
   <% unless @user.id == current_user.id %>
     <% if @isRoom == true %>
       <%= link_to "メッセージを送る", room_path %>
@@ -15,8 +15,10 @@
   <% end %>
   <%= render "shared/follow", user: @user %>
   <% if @user.id == current_user.id %>
-    <%= link_to "フォロー: #{@user.followings.count}", followings_user_path(@user.id) %>
-    <%= link_to "フォロワー: #{@user.followers.count}", followers_user_path(@user.id) %>
+    <span>
+      <%= link_to "フォロー: #{@user.followings.count}", followings_user_path(@user.id) %>
+      <%= link_to "フォロワー: #{@user.followers.count}", followers_user_path(@user.id) %>
+    </span>
   <% end %>
   <h1>投稿一覧</h1>
   <div class="contents_low" >
