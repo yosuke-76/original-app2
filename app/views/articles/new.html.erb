@@ -5,16 +5,16 @@
     <% @article.images.each do |image| %>
       <%= image_tag image, class: 'images' %>
     <% end %>
-    <%= form_with model: @article, class: :form_class, local: true do |f| %>
+    <%= form_with model: @article, class: "form_class", local: true do |f| %>
       <%= f.file_field :images, name: 'article[images][]', id: 'article_image' %>
+      <div id="image-list", class="image-list"></div>
       <%= f.label :store_name, "店舗名" %>
-      <%= f.text_field :store_name, placeholder: "store name", class: :store_name, size: "35" %>
+      <%= f.text_field :store_name, placeholder: "store name", class: "store_name", size: "35" %>
       <%= f.label :address, "住所" %>
-      <%= f.text_area :address, placeholder: "address", class: :address, size: "35" %>
+      <%= f.text_area :address, placeholder: "address", class: "address", size: "35" %>
       <%= f.label :text, "投稿内容" %>
       <%= f.text_area :text, placeholder: "text", size: "35x8" %>
-      <%= f.submit "送信", class: :submit %>
-      <div id="image-list"></div>
+      <%= f.submit "送信", class: "submit" %>
     <% end %>
   </div>
 </div>

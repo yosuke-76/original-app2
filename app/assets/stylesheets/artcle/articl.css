@@ -61,7 +61,16 @@ h1 {
 .images {
   display: flex;
 }
-
+.image-list {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 400px;
+}
+.image-element {
+  display: flex;
+  flex-direction: column;
+  max-width: 130px;
+}
 /* show */
 .articles {
   margin: 3%;
