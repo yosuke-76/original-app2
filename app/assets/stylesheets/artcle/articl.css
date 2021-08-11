@@ -71,6 +71,9 @@ h1 {
   flex-direction: column;
   max-width: 130px;
 }
+.image-edit {
+  display: flex;
+}
 /* show */
 .articles {
   margin: 3%;

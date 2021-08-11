@@ -16,14 +16,6 @@
         <li>
           <%= link_to '詳細', article_path(article.id)%>
         </li>
-        <% if user_signed_in? && current_user.id == article.user_id %>
-          <li>
-            <%= link_to '編集', edit_article_path(article.id), method: :get %>
-          </li>
-          <li>
-            <%= link_to "削除", article_path(article.id), method: :delete %>
-          </li>
-        <% end %>
       </ul>
     </div>
   <% end %>

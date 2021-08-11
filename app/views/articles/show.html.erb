@@ -2,6 +2,7 @@
 <div class="contents_low">
   <div class="show-more">
     <div class="articles">
+    <%= image_tag @article.images.first, class: "main__image" %>
       <% @article.images.each do |image| %>
         <%= image_tag image, class: "images" %>
       <% end %>
