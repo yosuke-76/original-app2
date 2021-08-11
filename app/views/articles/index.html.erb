@@ -3,7 +3,7 @@
   <% @articles.each do |article| %>
     <div class="more", id="more">
       <div class="articles">
-        <% article.images.each do |image| %>
+        <% article.images.first(1).each do |image| %>
           <%= image_tag image, class: "images" %>
         <% end %>
       </div>
