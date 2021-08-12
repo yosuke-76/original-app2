@@ -8,6 +8,8 @@
 }
 .more {
   width: 60%;
+  border: double;
+  margin: 3%;
 }
 .articles {
   display: flex;
@@ -15,6 +17,7 @@
 }
 .images {
   width: 60vw;
+  display: flex;
 }
 
 /* new,edit */
@@ -58,14 +61,20 @@ h1 {
   height: 50px;
   width: 100%;
 }
-.images {
+.image-list {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 400px;
+}
+.image-element {
+  display: flex;
+  flex-direction: column;
+  max-width: 130px;
+}
+.image-edit {
   display: flex;
 }
-
 /* show */
-.articles {
-  margin: 3%;
-}
 .date-name {
   display: flex;
   justify-content: center;
@@ -109,4 +118,21 @@ h5 {
 }
 .lists {
   padding: 1%;
+}
+.main-image {
+  width: 60%;
+  flex-direction: column;
+}
+.grid-image {
+  max-width: 50%;
+  display: flex;
+}
+.article-image {
+  width: 70%;
+}
+.comment-list {
+  display: flex;
+}
+.name-area {
+  padding: 0 24%;
 }
