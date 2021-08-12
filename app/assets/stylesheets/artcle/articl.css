@@ -8,6 +8,8 @@
 }
 .more {
   width: 60%;
+  border: double;
+  margin: 3%;
 }
 .articles {
   display: flex;
@@ -15,6 +17,7 @@
 }
 .images {
   width: 60vw;
+  display: flex;
 }
 
 /* new,edit */
@@ -57,9 +60,6 @@ h1 {
   border: none;
   height: 50px;
   width: 100%;
-}
-.images {
-  display: flex;
 }
 .image-list {
   display: flex;
@@ -121,4 +121,21 @@ h5 {
 }
 .lists {
   padding: 1%;
+}
+.main-image {
+  width: 70%;
+  flex-direction: column;
+}
+.grid-image {
+  max-width: 50%;
+  display: flex;
+}
+.article-image {
+  width: 60%;
+}
+.comment-list {
+  display: flex;
+}
+.name-area {
+  padding: 0 24%;
 }

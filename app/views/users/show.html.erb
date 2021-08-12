@@ -24,11 +24,11 @@
   <div class="contents_low" >
     <% @articles.each do |article| %>
       <div class="article-list">
-        <%= image_tag article.images[0], class: "images" %>
+        <%= link_to image_tag(article.images[0], class: "images"), article_path(article.id) %>
         <div class="name">
-          <p>　店舗名　<%= article.store_name %></p>
-          <p>　住所　<%= article.address %></p>
-          <p>　投稿内容　<%= article.text %></p>
+          <div class="store-name>">店舗名_<%= article.store_name %></div>
+          <div class="addoress">住所_<%= article.address %></div>
+          <div class="text-form">投稿内容_</b><%= article.text %></div>
           <div class="more-list">
             <% if user_signed_in? && current_user.id == article.user_id %>
               <%= link_to '編集', edit_article_path(article.id), method: :get, class: "lists" %>
@@ -41,11 +41,17 @@
     <h2>いいねしている投稿</h2>
     <div class="article-list">
       <% @user.like_articles.each do |article| %>
-        <%= image_tag article.images[0], class: "images" %>
+        <%= link_to image_tag(article.images[0], class: "images"), article_path(article.id) %>
         <div class="name">
-          <p>　投稿者　<%= article.user.nickname %></p>
-          <p>　店舗名　<%= article.store_name %></p>
-          <p>　住所　<%= article.address %></p>
+          <div class="store-name>">店舗名<%= article.store_name %></div>
+          <div class="addoress">住所<%= article.address %></div>
+          <div class="text-form">投稿内容</b><%= article.text %></div>
+          <div class="more-list">
+            <% if user_signed_in? && current_user.id == article.user_id %>
+              <%= link_to '編集', edit_article_path(article.id), method: :get, class: "lists" %>
+              <%= link_to "削除", article_path(article.id), method: :delete, class: "lists" %>
+            <% end %>
+          </div>
         </div>
       <% end %>
     </div>

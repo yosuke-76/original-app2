@@ -2,26 +2,20 @@
 <div class="contents_low">
   <div class="show-more">
     <div class="articles">
-    <%= image_tag @article.images.first, class: "main__image" %>
-      <% @article.images.each do |image| %>
-        <%= image_tag image, class: "images" %>
-      <% end %>
+      <div class="main-image">
+        <%= image_tag @article.images.first, class: "images" %>
+        <div class="grid-image">
+          <% @article.images.each do |image| %>
+            <%= image_tag image, class: "article-image" %>
+          <% end %>
+        </div>
+      </div>
     </div>
-    <table class="date-name">
-      <tbody>
-        <tr>
-          <th class="deta-item">店舗名</th>
-          <td class="date-value"><%= @article.store_name %><td>
-        </tr>
-        <tr>
-          <th class="deta-item">住所</th>
-          <td class="date-value"><%= @article.address %><td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="article-text">
+    <div class="name-area">
+      <div class="store-name>">店舗名_<%= @article.store_name %></div>
+      <div class="address-name">住所_<%= @article.address %></div>
+      <div class="text-name">投稿内容_<%= @article.text %></div>
       <%= link_to @article.user.nickname, user_path(@article.user.id) %>
-      <%= @article.text %>
     </div>
     <% if user_signed_in? && current_user.id == @article.user_id %>
       <ul class="more-list">
@@ -55,13 +49,13 @@
       <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
     <% end %>
   </div>
+  <h5>＜コメント一覧＞</h5>
   <div class="comments">
-    <h5>＜コメント一覧＞</h5>
     <% @comments.each do |comment| %>
-      <p>
-        <strong><%= link_to comment.user.nickname, user_path(comment.user_id) %>：</strong>
+      <div class="coment-list">
+        <%= link_to comment.user.nickname, user_path(comment.user_id) %>
         <%= comment.text %>
-      </p>
+      </div>
     <% end %>
   </div>
 

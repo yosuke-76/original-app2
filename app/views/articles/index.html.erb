@@ -4,19 +4,15 @@
     <div class="more", id="more">
       <div class="articles">
         <% article.images.first(1).each do |image| %>
-          <%= image_tag image, class: "images" %>
+          <%= link_to image_tag(image, class: "images"), article_path(article.id)%>
         <% end %>
       </div>
-      <span class="name">
-        <%= article.store_name %>
-        <%= article.address %>
-        <span>投稿者</span><%= link_to article.user.nickname, user_path(article.user.id) %>
-      </span>
-      <ul class="more-list">
-        <li>
-          <%= link_to '詳細', article_path(article.id)%>
-        </li>
-      </ul>
+      <hr>
+      <div class="name">
+          <div class="store-name>">店舗名_<%= article.store_name %></div>
+          <div class="addoress">住所_<%= article.address %></div>
+          <div class="text-form">投稿内容_</b><%= article.text %></div>
+        </div>
     </div>
   <% end %>
 </div>
