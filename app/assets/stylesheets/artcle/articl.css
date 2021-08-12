@@ -75,9 +75,6 @@ h1 {
   display: flex;
 }
 /* show */
-.articles {
-  margin: 3%;
-}
 .date-name {
   display: flex;
   justify-content: center;
@@ -123,7 +120,7 @@ h5 {
   padding: 1%;
 }
 .main-image {
-  width: 70%;
+  width: 60%;
   flex-direction: column;
 }
 .grid-image {
@@ -131,7 +128,7 @@ h5 {
   display: flex;
 }
 .article-image {
-  width: 60%;
+  width: 70%;
 }
 .comment-list {
   display: flex;
