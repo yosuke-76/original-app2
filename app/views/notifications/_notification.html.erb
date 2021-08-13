@@ -2,6 +2,7 @@
 <% visited = notification.visited %>
 
 <div class="notification-box">
+  <%= image_tag visitor.image, class: "icon" %>
   <%= link_to user_path(visitor) do %>
     <%= visitor.nickname %>
     <%= 'さんが' %>
@@ -16,9 +17,9 @@
         <%= link_to "あなたの投稿", notification.article %>
         <%= "にコメントしました" %>
       <% else %>
-        <%= notification.article.user.name %>
+        <%= notification.article.user.nickname %>
         <%= 'さんの投稿にコメントしました' %>
-        <%= Comment.find_by(id: notification.comment_id)&.comment %>
+        <%= Comment.find_by(id: notification.comment_id)&.committed! %>
       <% end %>
     <% end %>
   <% end %>

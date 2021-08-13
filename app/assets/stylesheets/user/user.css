@@ -1,10 +1,14 @@
 .article-list {
   border: double;
+  width: 60vw;
 }
 p {
   margin: 1%;
 }
-.image-icon {
-  width: 50%;
-  border-radius: 50%
+.follow-box {
+  display: flex;
+  align-items: center;
+  border: solid;
+  padding: 40px;
+  margin: 10px;
 }

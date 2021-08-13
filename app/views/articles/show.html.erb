@@ -44,7 +44,7 @@
     <% if user_signed_in? %>
       <%= form_with model: [@article, @comment], class: :form_comments, local: true do |f| %>
         <%= f.text_area :text, placeholder: "コメントする" %>
-        <%= f.submit "SEND" %>
+        <%= f.submit "送信" %>
       <% end %>
     <% else %>
       <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
@@ -62,7 +62,7 @@
 
   <style type="text/css">
     #map {
-      height: 200px;
+      height: 400px;
       width: 100%;
     }
   </style>
