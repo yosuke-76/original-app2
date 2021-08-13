@@ -24,6 +24,8 @@ class User < ApplicationRecord
     validates :password, format: { with: /\A(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,}\z/ }, on: :create
   end
 
+  mount_uploader :image, ImageUploader
+
   def follow(other_user)
     unless self == other_user
       self.relationships.find_or_create_by(follow_id: other_user.id)

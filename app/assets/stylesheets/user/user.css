@@ -12,3 +12,8 @@ p {
   padding: 40px;
   margin: 10px;
 }
+.image-icon {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
