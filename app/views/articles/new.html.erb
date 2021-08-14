@@ -6,6 +6,9 @@
       <%= image_tag image, class: 'images' %>
     <% end %>
     <%= form_with model: @article, class: "form_class", local: true do |f| %>
+
+      <%= render 'shared/error_messages', model: f.object %>
+      
       <%= f.file_field :images, name: 'article[images][]', id: 'article_image' %>
       <div id="image-list", class="image-list"></div>
       <%= f.label :store_name, "店舗名" %>
