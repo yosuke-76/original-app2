@@ -26,10 +26,6 @@
           <%= f.label :password_confirmation %><br />
           <%= f.password_field :password_confirmation, placeholder: "Password", class: 'text-box', autocomplete: "new-password" %>
         </div>
-
-        <div class="field-text">
-          <%= f.hidden_field :image, :value => 'sample.png'%>
-        </div>
         
         <div class="actions">
           <%= f.submit "Sign In", class:'sign-btn' %>

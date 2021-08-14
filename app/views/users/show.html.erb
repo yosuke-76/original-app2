@@ -2,7 +2,9 @@
 <div class="contents_low">
   <div class="user-pro"><%= @user.nickname %>さんのプロフィール</div>
   <%= image_tag @user.image.to_s, class: "image-icon" %>
-  <%= link_to 'アカウント情報編集', edit_user_path, method: :get, class: "lists" %>
+  <% if current_user.id == @user.id %>
+    <%= link_to 'アカウント情報編集', edit_user_path, method: :get, class: "lists" %>
+  <% end %>
   <% unless @user.id == current_user.id %>
     <% if @isRoom == true %>
       <%= link_to "メッセージを送る", room_path %>
