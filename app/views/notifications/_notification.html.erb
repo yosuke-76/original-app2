@@ -2,7 +2,7 @@
 <% visited = notification.visited %>
 
 <div class="notification-box">
-  <%= image_tag visitor.image, class: "icon" %>
+  <%= image_tag visitor.image.to_s, class: "icon" %>
   <%= link_to user_path(visitor) do %>
     <%= visitor.nickname %>
     <%= 'さんが' %>

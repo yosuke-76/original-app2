@@ -17,3 +17,8 @@ p {
   height: 200px;
   border-radius: 50%;
 }
+.icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
