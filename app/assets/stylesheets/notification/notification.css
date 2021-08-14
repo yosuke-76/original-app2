@@ -5,8 +5,12 @@
   margin: 0 40px;
 }
 .notification-box {
-  text-align: center;
+  display: flex;
+  align-items: center;
   border: solid;
   padding: 40px;
   margin: 10px;
+}
+.icon {
+  width: 100px;
 }

@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  
   has_many :messages, dependent: :destroy
   has_many :entries
   has_many :rooms, through: :entries
@@ -20,8 +21,10 @@ class User < ApplicationRecord
   
   with_options presence: true do
     validates :nickname
-    validates :password, format: { with: /\A(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,}\z/ }
+    validates :password, format: { with: /\A(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,}\z/ }, on: :create
   end
+
+  mount_uploader :image, ImageUploader
 
   def follow(other_user)
     unless self == other_user

@@ -1,6 +1,10 @@
 <%= render "shared/header" %>
 <div class="contents_low">
   <div class="user-pro"><%= @user.nickname %>さんのプロフィール</div>
+  <%= image_tag @user.image.to_s, class: "image-icon" %>
+  <% if current_user.id == @user.id %>
+    <%= link_to 'アカウント情報編集', edit_user_path, method: :get, class: "lists" %>
+  <% end %>
   <% unless @user.id == current_user.id %>
     <% if @isRoom == true %>
       <%= link_to "メッセージを送る", room_path %>
@@ -22,8 +26,8 @@
   <% end %>
   <h1>投稿一覧</h1>
   <div class="contents_low" >
-    <% @articles.each do |article| %>
-      <div class="article-list">
+    <div class="article-list">
+      <% @articles.each do |article| %>
         <%= link_to image_tag(article.images[0], class: "images"), article_path(article.id) %>
         <div class="name">
           <div class="store-name>">店舗名_<%= article.store_name %></div>
@@ -36,8 +40,8 @@
             <% end %>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
     <h2>いいねしている投稿</h2>
     <div class="article-list">
       <% @user.like_articles.each do |article| %>

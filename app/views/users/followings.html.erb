@@ -1,4 +1,10 @@
+<%= render "shared/header" %>
 <h1>フォロー中</h1>
-<% @users.each do |user| %>
-  <%= link_to user.nickname, user_path(user.id) %>
-<% end %>
+<div class="follow-box">
+  <% @users.each do |user| %>
+    <div class="follow-list">
+      <%= image_tag user.image.to_s, class: "icon" %>
+      <%= link_to user.nickname, user_path(user.id), class: "username" %>
+    </div>
+  <% end %>
+</div>
