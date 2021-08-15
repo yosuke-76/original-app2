@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show, :edit]
   before_action :set_user, only: [:edit, :followings, :followers]
+  before_action :move_user, only: [:edit,:update]
   def edit
   end
 
@@ -52,5 +53,11 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:nickname, :email, :image)
+  end
+
+  def move_user
+    unless current_user.id == @user.id
+      redirect_to root_path
+    end
   end
 end

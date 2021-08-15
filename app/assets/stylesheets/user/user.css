@@ -41,3 +41,13 @@ p {
 .field {
   border: none;
 }
+.follow_btn {
+  margin: 5px;
+  color: white;
+  font-size: 28px;
+  background:royalblue;
+  text-align: center;
+  border: none;
+  height: 50px;
+  width: 100%;
+}

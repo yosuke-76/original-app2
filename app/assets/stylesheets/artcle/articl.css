@@ -124,11 +124,12 @@ h5 {
   flex-direction: column;
 }
 .grid-image {
-  max-width: 50%;
   display: flex;
+  flex-wrap: wrap;
+  width: 99%;
 }
 .article-image {
-  width: 70%;
+  width: 33%;
 }
 .comment-list {
   display: flex;

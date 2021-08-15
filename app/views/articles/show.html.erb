@@ -44,7 +44,7 @@
     <% if user_signed_in? %>
       <%= form_with model: [@article, @comment], class: :form_comments, local: true do |f| %>
         <%= f.text_area :text, placeholder: "コメントする" %>
-        <%= f.submit "送信" %>
+        <%= f.submit "送信", class: "submit" %>
       <% end %>
     <% else %>
       <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
