@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, except: :index
+  # before_action :authenticate_user!, except: :index
   before_action :set_article, only: [:edit, :update, :show]
   before_action :move_root, only: [:edit, :update]
   def index
