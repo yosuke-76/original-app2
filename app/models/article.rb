@@ -8,7 +8,9 @@ class Article < ApplicationRecord
   has_many :notifications, dependent: :destroy
 
   with_options presence: true do 
+    validates :images
     validates :store_name
+    validates :address
     validates :text
   end
 

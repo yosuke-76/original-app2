@@ -4,6 +4,8 @@
       <h2>Sign In</h2>
       <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
 
+        <%= render 'shared/error_messages', model: f.object %>
+
         <div class="field-text">
           <%= f.label :nickname %> <em>(6 characters maximum)</em><br />
           <%= f.text_field :nickname, placeholder: "Nickname", class:'text-box', autofocus: true, maxlength: "6" %>

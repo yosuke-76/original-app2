@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: :index
   before_action :set_article, only: [:edit, :update, :show]
+  before_action :move_root, only: [:edit, :update]
   def index
     @articles = Article.order('created_at DESC')
     @like = Like.new
@@ -49,5 +50,11 @@ class ArticlesController < ApplicationController
 
   def set_article
     @article = Article.find(params[:id])
+  end
+
+  def move_root
+    unless current_user.id == @article.user_id
+      redirect_to root_path
+    end
   end
 end
