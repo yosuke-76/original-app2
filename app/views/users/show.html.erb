@@ -2,7 +2,7 @@
 <div class="contents_low">
   <div class="user-pro"><%= @user.nickname %>さんのプロフィール</div>
   <%= image_tag @user.image.to_s, class: "image-icon" %>
-  <% if current_user.id == @user.id %>
+  <% if user_signed_in? && current_user.id == @user.id %>
     <%= link_to 'アカウント情報編集', edit_user_path, method: :get, class: "lists" %>
   <% end %>
   <% unless @user.id == current_user.id %>
@@ -50,12 +50,6 @@
           <div class="store-name>">店舗名<%= article.store_name %></div>
           <div class="addoress">住所<%= article.address %></div>
           <div class="text-form">投稿内容</b><%= article.text %></div>
-          <div class="more-list">
-            <% if user_signed_in? && current_user.id == article.user_id %>
-              <%= link_to '編集', edit_article_path(article.id), method: :get, class: "lists" %>
-              <%= link_to "削除", article_path(article.id), method: :delete, class: "lists" %>
-            <% end %>
-          </div>
         </div>
       <% end %>
     </div>

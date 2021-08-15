@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: :index
   before_action :set_article, only: [:edit, :update, :show]
   def index
     @articles = Article.order('created_at DESC')

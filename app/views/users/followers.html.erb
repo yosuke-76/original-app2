@@ -2,7 +2,9 @@
 <h1>フォローされてます</h1>
 <div class="follow-box">
   <% @users.each do |user| %>
-    <%= image_tag user.image.to_s, class: "icon" %>
-    <%= link_to user.nickname, user_path(user.id) %>
+    <div class="follow-list">
+      <%= image_tag user.image.to_s, class: "icon" %>
+      <%= link_to user.nickname, user_path(user.id) %>
+    </div>
   <% end %>
 </div>
