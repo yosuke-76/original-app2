@@ -62,3 +62,4 @@ gem "geocoder"
 gem 'dotenv-rails'
 gem 'pry-rails'
 gem 'carrierwave'
+gem "aws-sdk-s3", require: false
