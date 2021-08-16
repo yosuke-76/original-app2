@@ -90,6 +90,7 @@ h1 {
 }
 .list {
   width: 5%;
+  list-style: none;
 }
 .comments {
   display: flex;
@@ -118,10 +119,6 @@ h5 {
 }
 .lists {
   padding: 1%;
-}
-.main-image {
-  width: 60%;
-  flex-direction: column;
 }
 .grid-image {
   display: flex;

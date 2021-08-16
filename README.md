@@ -89,7 +89,7 @@
 | -------- | ------ | ----------- |
 | nickname | string | null: false |
 | email    | string | null: false |
-| images   | string |
+| images   | string |             |
 
 ## Association
 - has_many :messages, dependent: :destroy
@@ -108,6 +108,7 @@
   
 # articlesテーブル
 |   Column   |    Type    |   Options                       |
+| ---------- | ---------- | ------------------------------- |
 | store-name |   string   | null: false                     |
 |    text    |    text    | null: false                     |
 |    user    | references | null: false, foreign_key: :true |
@@ -125,8 +126,9 @@
 
 # Commentsテーブル
 |   Column   |    Type    |   Options   |
-|  user_id   |   integer  |
-| article_id |   integer  |
+| ---------- | ---------- | ----------- |
+|  user_id   |   integer  |             |
+| article_id |   integer  |             |
 |   text     |   text     | null: false |
 
 ## Association
@@ -136,6 +138,7 @@
 
 # entriesテーブル
 |   Column   |    Type    |   Options                       |
+| ---------- | ---------- | ------------------------------- |
 |    user    | references | null: false, foreign_key: :true |
 |    room    | references | null: false, foreign_key: :true |
 
@@ -145,6 +148,7 @@
 
 # likesテーブル
 |   Column   |    Type    |   Options          |
+| ---------- | ---------- | ------------------ |
 |    user    | references | foreign_key: :true |
 |   article  | references | foreign_key: :true |
 
@@ -154,6 +158,7 @@
 
 # messagesテーブル
 |   Column   |    Type    |   Options                       |
+| ---------- | ---------- | ------------------------------- |
 |    user    | references | null: false, foreign_key: :true |
 |    room    | references | null: false, foreign_key: :true |
 |   content  |   string   | null: false                     |
@@ -164,10 +169,11 @@
 
 # notificationsテーブル
 |   Column   |    Type    |   Options                       |
+| ---------- | ---------- | ------------------------------- |
 | visitor_id |   integer  | null: false                     |
 | visited_id |   integer  | null: false                     |
-| article_id |   integer  |
-| comment_id |   integer  |
+| article_id |   integer  |                                 |
+| comment_id |   integer  |                                 |
 |   action   |   string   | null: false, default: ''        |
 |  checked   |   boolean  | null: false, default: false     |
 
@@ -179,6 +185,7 @@
 
 # Relationshipテーブル
 |   Column   |    Type    |   Options                       　　　　　　　　　|
+| ---------- | ---------- | ---------------------------------------------- |
 |    user    | references | null: false, foreign_key: :true 　　　　　　　　　|
 |   follow   | references | null: false, foreign_key: { to_table: :users } |
 
