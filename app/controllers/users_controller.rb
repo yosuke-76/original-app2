@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show, :edit]
-  before_action :set_user, only: [:edit, :followings, :followers]
+  before_action :set_user, only: [:edit, :followings, :followers, :show]
   before_action :move_user, only: :edit
   def edit
   end
@@ -15,7 +15,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
     @articles = current_user.articles
     @relationship = current_user.relationships.find_by(follow_id: @user.id)  
     @set_relationship = current_user.relationships.new

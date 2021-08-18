@@ -11,9 +11,9 @@ document.addEventListener('DOMContentLoaded', function(){
       inputHTML.setAttribute('id', `article_image_${imageElementNum}`)
       inputHTML.setAttribute('name', 'article[images][]')
       inputHTML.setAttribute('type', 'file')
-      imageElement.appendChild(blobImage);
+      imageElement.appendChild(blobImage)
       imageElement.appendChild(inputHTML)
-      ImageList.appendChild(imageElement);
+      ImageList.appendChild(imageElement)
 
       inputHTML.addEventListener('change', (e) => {
         file = e.target.files[0];
@@ -21,11 +21,11 @@ document.addEventListener('DOMContentLoaded', function(){
 
         createImageHTML(blob)
       })
-    };
+    }
     document.getElementById('article_image').addEventListener('change', function(e){
       const file = e.target.files[0];
       const blob = window.URL.createObjectURL(file);
-      createImageHTML(blob);
+      createImageHTML(blob)
     });
   }
 });
