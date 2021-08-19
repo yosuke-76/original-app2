@@ -15,7 +15,7 @@
 
 # テスト用アカウント
 * ユーザー1
-  email: test1@com
+  email: test1@com  
   password: testtest1
 
 # 洗い出した要件
