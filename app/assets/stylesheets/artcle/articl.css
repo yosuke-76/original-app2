@@ -14,6 +14,7 @@
 .articles {
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 .images {
   width: 60vw;
@@ -123,7 +124,6 @@ h5 {
 .grid-image {
   display: flex;
   flex-wrap: wrap;
-  width: 99%;
 }
 .article-image {
   width: 33%;
@@ -133,4 +133,8 @@ h5 {
 }
 .name-area {
   padding: 0 24%;
+}
+.main-image {
+  display: flex;
+  justify-content: center;
 }

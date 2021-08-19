@@ -5,11 +5,11 @@
     <div class="articles">
       <div class="main-image">
         <%= image_tag @article.images.first, class: "images" %>
-        <div class="grid-image">
-          <% @article.images.each do |image| %>
-            <%= image_tag image, class: "article-image" %>
-          <% end %>
-        </div>
+      </div>
+      <div class="grid-image">
+        <% @article.images.each do |image| %>
+          <%= image_tag image, class: "article-image" %>
+        <% end %>
       </div>
     </div>
     <div class="name-area">
