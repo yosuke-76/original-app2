@@ -15,16 +15,8 @@
 
 # テスト用アカウント
 * ユーザー1
-  email:
-  password:
-
-* ユーザー2
-  email:
-  password:
-
-* ユーザー3
-  email:
-  password:
+  email: test1@com
+  password: testtest1
 
 # 洗い出した要件
 | _機能_ | _目的_ | _詳細_ | _ストーリー_ |
