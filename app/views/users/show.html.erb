@@ -27,7 +27,7 @@
   <h1>投稿一覧</h1>
   <div class="contents_low" >
     <div class="article-list">
-      <% @articles.each do |article| %>
+      <% @user.articles.each do |article| %>
         <%= link_to image_tag(article.images[0], class: "images"), article_path(article.id) %>
         <div class="name">
           <div class="store-name>">店舗名_<%= article.store_name %></div>
